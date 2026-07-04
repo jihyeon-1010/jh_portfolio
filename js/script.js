@@ -301,7 +301,6 @@ $(function() {
     /* -------------------- 슬라이드05 -------------------- */
     $('#slide05').slick({...slideOption, asNavFor: '.slide05-nav'})
     $('.slide05-nav').slick({...slideNavOption, asNavFor: '#slide05'})
-
     
     /* -------------------- 슬라이드06 -------------------- */
     $('#slide06').slick({...slideOption, asNavFor: '.slide06-nav'})
@@ -373,4 +372,44 @@ $(function() {
         $drawer.this.toggleClass('is-open');
         $dim.toggleClass('active')
     })
+});
+
+window.addEventListener('scroll', () => {
+    const footer = document.querySelector('footer');
+    const footerTop = footer.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    const icon = document.querySelector('.page-up .top i');
+
+    if (footerTop < windowHeight) {
+        icon.classList.add('white');
+    } else {
+        icon.classList.remove('white');
+    }
+});
+
+document.querySelector('.page-up').addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+document.querySelectorAll(".career-project").forEach(item => {
+    item.addEventListener("click", () => {
+        document.getElementById(item.dataset.modal).classList.add("show");
+    });
+});
+
+document.querySelectorAll(".career-modal .modal-close").forEach(btn => {
+    btn.addEventListener("click", () => {
+        btn.closest(".career-modal").classList.remove("show");
+    });
+});
+
+document.querySelectorAll(".career-modal").forEach(modal => {
+    modal.addEventListener("click", e => {
+        if (e.target === modal) {
+            modal.classList.remove("show");
+        }
+    });
 });
