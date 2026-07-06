@@ -1128,6 +1128,30 @@ footer i { font-size: 40px; }
     header .wrap {
         padding: 20px 10px 20px 20px;
     }
+
+    /* .project-link {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin: 16px 0 18px !important;
+        width: 100%;
+    } */
+
+    .project-link a {
+        display: block;
+        flex: 1;
+        word-break: break-all;
+        line-height: 1.5;
+    }
+
+    /* .project-link i {
+        flex-shrink: 0;
+        margin-top: 2px;
+    } */
+
+    /* .project-skills {
+        margin-top: 12px;
+    } */
 }
 
 
@@ -1514,7 +1538,7 @@ footer i { font-size: 40px; }
     display:flex;
     align-items:center;
     gap:8px;
-    margin:10px 0 20px;
+    /* margin:10px 0 20px; */
 }
 
 .project-link i{
