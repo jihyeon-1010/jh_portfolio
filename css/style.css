@@ -178,6 +178,7 @@ header {
     color: hsla(0,0%,100%,.7);
     z-index: 200;
 }
+
 header a:hover {color: white;}
 
 header.active {
@@ -214,8 +215,6 @@ section#Home .inner {
     color: white;
 }
 
-
-
 /* -------------------- 섹션2 -------------------- */
 section#About {
     
@@ -245,8 +244,6 @@ section#About {
 }
 .profile-info i { font-size: 32px; }
 .profile-info .info { display: inline-block; width: 100%; color: #aaa;}
-
-
 
 /* -------------------- 섹션3 -------------------- */
 section#Skills {
@@ -440,7 +437,6 @@ section#Skills .box {
     }
 }
 
-
 /*  */
 .skill_grid {
     display: grid;
@@ -453,8 +449,6 @@ section#Skills .box {
     display: inline-block;
     margin-bottom: 10px;
 }
-
-
 
 /* -------------------- 섹션4 -------------------- */
 section#Project {
@@ -503,7 +497,6 @@ section#Project {
     font-size: 22px;
 }
 
-
 .project-card .img-area {
     width: 100%;
     height: 160px;
@@ -535,9 +528,11 @@ section#Project {
     margin-bottom: 10px;
     min-height: 40px;
 }
+
 .project-card .content-area .project-content {
     font-size: 12px;
 }
+
 .project-card .content-area .project-func {
     margin-top: 8px;
 }
@@ -634,7 +629,6 @@ section#Project {
 }
 
 /* -------------------- 섹션4 - slide-view -------------------- */
-
 .slide-container.phone {
     position: relative;
     width: 260px;
@@ -644,13 +638,11 @@ section#Project {
     /* left: 10px; */
 }
 
-
 .slide-container.phone .slide {
     width: 260px;
     overflow: hidden;
     box-sizing: border-box;
 }
-
 
 .project-slide-view {
     display: grid;
@@ -740,9 +732,7 @@ footer {
 
 footer i { font-size: 40px; }
 
-
 /* -------------------- slick slide -------------------- */
-
 .slide-container {
     width: 560px; 
     height: 320px; 
@@ -755,12 +745,10 @@ footer i { font-size: 40px; }
     box-sizing: border-box;
 }
 
-
 .slide img { 
     width: 100%;
     height: 100%;
 }
-
 
 .slide-nav {
     /* width: 960px; */
@@ -804,7 +792,6 @@ footer i { font-size: 40px; }
     cursor: pointer;
 }
 
-
 .next-arrow {
     position: absolute;
     right: 2%;
@@ -820,20 +807,16 @@ footer i { font-size: 40px; }
     cursor: pointer;
 }
 
-
 .prev-arrow:hover,
 .next-arrow:hover {
     filter: brightness(100%);
 }
-
-
 
 /* 네비게이션 닷츠 커스텀 */
 .slick-dots {
     position: absolute;
     bottom: -20px;
 }
-
 
 .slick-dots li { margin-right: 20px; }
 .slick-dots li button {}
@@ -860,16 +843,13 @@ footer i { font-size: 40px; }
     box-sizing: border-box;
 }
 
-
 .slick-dots li.slick-active .nav-btn {
     background-color: orange;
 }
 
-
 .v-pc { display: block !important ;}
 .v-tab { display: none  !important; }
 .v-mobile { display: none !important; }
-
 
 /* -------------------- 반응형 -------------------- */
 /* 1140px 이하에 대한 스타일 */
@@ -951,7 +931,6 @@ footer i { font-size: 40px; }
     .slide-container.phone {
         /* left: 10px; */
     }
-
 }
 
 /* 720px 이하에 대한 스타일 */
@@ -1153,8 +1132,6 @@ footer i { font-size: 40px; }
         margin-top: 12px;
     } */
 }
-
-
 
 /*  */
 /**
@@ -1378,17 +1355,11 @@ footer i { font-size: 40px; }
 }
 
 .project-skills .skill{
-
     padding:6px 12px;
-
     border-radius:999px;
-
     font-size:12px;
-
     font-weight:600;
-
     transition:.25s;
-
     cursor:default;
 }
 
@@ -1568,28 +1539,20 @@ footer i { font-size: 40px; }
 }
 
 /* 전체 */
-
 .career-item{
-
     display:grid;
-
     grid-template-columns:260px 1fr;
-
     gap:60px;
-
     align-items:start;
-
 }
 
 /* =====================================================
    Left
 ===================================================== */
-
 .career-left{
 
     position:sticky;
     top:120px;
-
     text-align:center;
 
 }
@@ -1597,181 +1560,109 @@ footer i { font-size: 40px; }
 .career-period{
 
     color:#7b8194;
-
     font-size:15px;
-
     font-weight:600;
-
     margin-bottom:20px;
-
 }
 
 .career-logo{
-
     width:170px;
-
     height:110px;
-
     margin:0 auto 20px;
-
     background:white;
-
     border-radius:20px;
-
     display:flex;
-
     justify-content:center;
-
     align-items:center;
-
     border:1px solid #ececec;
-
     box-shadow:0 10px 30px rgba(0,0,0,.08);
-
 }
 
 .career-logo img{
-
     width:80%;
-
     object-fit:contain;
-
 }
 
 .career-left h3{
-
     font-size:28px;
-
     color:#222;
-
     margin-bottom:8px;
-
 }
 
 .career-left p{
-
     color:#777;
-
     font-size:15px;
-
 }
 
 /* =====================================================
    Right
 ===================================================== */
-
 .career-right{
-
     border-left:2px solid #dcdfe8;
-
     padding-left:40px;
-
     position:relative;
-
 }
 
 .career-right::before{
-
     content:"";
-
     width:12px;
-
     height:12px;
-
     border-radius:50%;
-
     background:#7882A4;
-
     position:absolute;
-
     left:-7px;
-
     top:8px;
-
 }
 
 /* =====================================================
    Project Card
 ===================================================== */
-
 .career-project{
-
     display:grid;
-
     grid-template-columns:1fr 150px 20px;
-
     gap:25px;
-
     align-items:center;
-
     padding:26px 24px;
-
     margin-bottom:18px;
-
     border-radius:18px;
-
     border:1px solid #ECEEF5;
-
     background:#fff;
-
     cursor:pointer;
-
     transition:.25s;
-
 }
 
 .career-project:hover{
-
     transform:translateY(-5px);
-
     box-shadow:0 12px 35px rgba(120,130,164,.15);
-
 }
 
 .career-project h4{
-
     font-size:20px;
-
     color:#222;
-
     margin-bottom:8px;
-
 }
 
 .career-project p{
-
     color:#777;
-
     line-height:1.6;
-
     font-size:14px;
-
 }
 
 .project-date{
-
     color:#7882A4;
-
     text-align:right;
-
     font-weight:600;
-
     font-size:14px;
-
 }
 
 .career-project i{
-
     font-size:26px;
-
     color:#7882A4;
-
 }
 
 /* =====================================================
    Modal
 ===================================================== */
-
 .career-modal{
     position:fixed;
     inset:0;
