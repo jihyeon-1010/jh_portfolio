@@ -1830,13 +1830,13 @@ footer i { font-size: 40px; }
     margin-bottom:10px;
 }
 
-/* .award-org{
+.award-org{
     display:inline-flex;
     align-items:center;
     gap:5px;
     font-size:14px;
     color:#888;
-} */
+}
 
 .award-org i{
     font-size:16px;
