@@ -413,3 +413,158 @@ document.querySelectorAll(".career-modal").forEach(modal => {
         }
     });
 });
+
+$(function () {
+    const modal = document.getElementById("projectImageModal");
+    const fullImage = document.getElementById("projectFullImage");
+    const sizeToggle = document.getElementById("imageSizeToggle");
+    const closeButton = document.getElementById("imageViewerClose");
+    const viewerBody = modal.querySelector(".image-viewer-body");
+
+    const imageSelector =
+        ".project-slide-view .slide-container .slide img";
+
+    let previousOverflow = "";
+    let lastTrigger = null;
+    let pointerStart = null;
+
+    // 키보드로도 이미지를 선택할 수 있게 설정
+    $(imageSelector).attr({
+        role: "button",
+        tabindex: "0",
+        "aria-label": "프로젝트 이미지 크게 보기",
+        "aria-haspopup": "dialog"
+    });
+
+    function openImage(image) {
+        if (modal.open) return;
+
+        lastTrigger = image;
+        previousOverflow = document.body.style.overflow;
+
+        // data-full이 있으면 고해상도 이미지 사용
+        fullImage.src =
+            image.dataset.full || image.currentSrc || image.src;
+        fullImage.alt = image.alt || "프로젝트 화면 크게 보기";
+
+        modal.classList.remove("is-original");
+        sizeToggle.textContent = "원본 크기";
+        sizeToggle.setAttribute("aria-pressed", "false");
+
+        modal.showModal();
+        document.body.style.overflow = "hidden";
+
+        viewerBody.scrollTop = 0;
+        viewerBody.scrollLeft = 0;
+    }
+
+    // 슬라이드를 넘기는 드래그와 클릭 구분
+    $(document).on("pointerdown", imageSelector, function (event) {
+        pointerStart = {
+            x: event.clientX,
+            y: event.clientY
+        };
+    });
+
+    $(document).on("pointercancel", function () {
+        pointerStart = null;
+    });
+
+    $(document).on("click", imageSelector, function (event) {
+        const wasDragged = pointerStart &&
+            Math.hypot(
+                event.clientX - pointerStart.x,
+                event.clientY - pointerStart.y
+            ) > 8;
+
+        pointerStart = null;
+
+        if (wasDragged) return;
+
+        event.preventDefault();
+        openImage(this);
+    });
+
+    $(document).on("keydown", imageSelector, function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            openImage(this);
+        }
+    });
+
+    sizeToggle.addEventListener("click", function () {
+        const isOriginal = modal.classList.toggle("is-original");
+
+        sizeToggle.textContent =
+            isOriginal ? "화면에 맞추기" : "원본 크기";
+
+        sizeToggle.setAttribute("aria-pressed", String(isOriginal));
+
+        viewerBody.scrollTop = 0;
+        viewerBody.scrollLeft = 0;
+    });
+
+    closeButton.addEventListener("click", function () {
+        modal.close();
+    });
+
+    // 모달 영역 밖의 어두운 배경을 클릭하면 닫기
+    modal.addEventListener("click", function (event) {
+        if (event.target !== modal) return;
+
+        const rect = modal.getBoundingClientRect();
+        const isOutside =
+            event.clientX < rect.left ||
+            event.clientX > rect.right ||
+            event.clientY < rect.top ||
+            event.clientY > rect.bottom;
+
+        if (isOutside) modal.close();
+    });
+
+    // ESC로 닫힌 경우에도 스크롤과 포커스 복원
+    modal.addEventListener("close", function () {
+        document.body.style.overflow = previousOverflow;
+        fullImage.removeAttribute("src");
+
+        if (lastTrigger && lastTrigger.isConnected) {
+            lastTrigger.focus({ preventScroll: true });
+        }
+    });
+});
+
+$(function () {
+    $(".project-slide-view .slide-box").each(function () {
+        const $box = $(this);
+
+        if ($box.find(".image-expand-button").length) return;
+
+        const $button = $(`
+            <button type="button" class="image-expand-button"
+                    aria-label="현재 프로젝트 이미지 크게 보기">
+                <i class="mdi mdi-magnify-plus-outline" aria-hidden="true"></i>
+                <span>크게 보기</span>
+            </button>
+        `);
+
+        $box.append($button);
+
+        $button.on("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
+
+            // 현재 표시 중인 슬라이드 이미지
+            let $image = $box.find(".slick-current img").first();
+
+            // Slick 초기화 전에는 첫 번째 이미지 사용
+            if (!$image.length) {
+                $image = $box.find(".slide img").first();
+            }
+
+            // 앞에서 만든 모달 열기 이벤트 실행
+            $image.trigger(
+                $.Event("keydown", { key: "Enter" })
+            );
+        });
+    });
+});

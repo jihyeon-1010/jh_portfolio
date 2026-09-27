@@ -1364,7 +1364,6 @@ footer i { font-size: 40px; }
 }
 
 /* 언어 */
-
 .skill.c{
     background:#EEF2FF;
     color:#3949AB;
@@ -1400,19 +1399,16 @@ footer i { font-size: 40px; }
     color: #3f7d20;
 }
 
-/* Spring Security */
 .skill.security {
     background: rgba(46, 125, 50, 0.15);
     color: #2E7D32;
 }
 
-/* JWT */
 .skill.jwt {
     background: rgba(0, 188, 212, 0.15);
     color: #0097A7;
 }
 
-/* MySQL */
 .skill.mysql {
     background: rgba(0, 117, 143, 0.15);
     color: #00618A;
@@ -1453,7 +1449,6 @@ footer i { font-size: 40px; }
     color: #3776AB;
 }
 
-/* ThingSpeak */
 .skill.thingspeak {
     background: rgba(231, 76, 60, 0.15);
     color: #E74C3C;
@@ -1472,6 +1467,36 @@ footer i { font-size: 40px; }
 .skill.linux {
     background: #F3F4F6;
     color: #1F2937;
+}
+
+/* Node.js */
+.skill.node {
+    background: rgba(51, 153, 51, 0.15);
+    color: #339933;
+}
+
+/* Express */
+.skill.express {
+    background: rgba(0, 0, 0, 0.08);
+    color: #333333;
+}
+
+/* PostgreSQL */
+.skill.postgres {
+    background: rgba(51, 103, 145, 0.15);
+    color: #336791;
+}
+
+/* Cloudflare R2 */
+.skill.r2 {
+    background: rgba(243, 128, 32, 0.15);
+    color: #F38020;
+}
+
+/* Cloudflare Pages */
+.skill.cloudflare {
+    background: rgba(246, 130, 31, 0.15);
+    color: #F48120;
 }
 
 /* .project-skills .skill:hover{
@@ -1979,3 +2004,196 @@ footer i { font-size: 40px; }
     }
 }
 
+/* 클릭해서 확대할 수 있는 이미지 */
+.project-slide-view .slide-container .slide img {
+    cursor: zoom-in;
+}
+
+.project-slide-view .slide-container .slide img:focus-visible {
+    outline: 3px solid #7882a4;
+    outline-offset: -3px;
+}
+
+/* 모니터 프레임이 이미지 클릭을 막지 않도록 */
+.project-slide-view .slide-back {
+    pointer-events: none;
+}
+
+/* 이미지 모달 */
+#projectImageModal {
+    box-sizing: border-box;
+    position: fixed;
+    inset: 0;
+    width: 96vw;
+    max-width: 1600px;
+    height: 92vh;
+    height: 92dvh;
+    max-height: none;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #343945;
+    border-radius: 16px;
+    background: #151821;
+    color: #fff;
+    overflow: hidden;
+}
+
+#projectImageModal[open] {
+    display: flex;
+    flex-direction: column;
+}
+
+#projectImageModal::backdrop {
+    background: rgba(0, 0, 0, 0.82);
+}
+
+/* 상단 버튼 영역 */
+#projectImageModal .image-viewer-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-shrink: 0;
+    padding: 14px 20px;
+    border-bottom: 1px solid #343945;
+}
+
+#projectImageModal .image-viewer-actions {
+    display: flex;
+    gap: 8px;
+}
+
+#projectImageModal button {
+    padding: 9px 14px;
+    border: 1px solid #555b6b;
+    border-radius: 8px;
+    background: #292e3b;
+    color: #fff;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+#projectImageModal button:hover {
+    background: #3a4255;
+}
+
+#projectImageModal button:focus-visible {
+    outline: 2px solid #b8c9ff;
+    outline-offset: 3px;
+}
+
+/* 화면 맞춤: 이미지 전체를 비율 유지해서 표시 */
+#projectImageModal .image-viewer-body {
+    flex: 1;
+    min-height: 0;
+    overflow: auto;
+    padding: 16px;
+    overscroll-behavior: contain;
+}
+
+#projectFullImage {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    object-fit: contain;
+}
+
+/* 원본 크기: 큰 이미지는 가로·세로 스크롤로 확인 */
+#projectImageModal.is-original #projectFullImage {
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    margin: 0 auto;
+}
+
+/* 확대 버튼의 위치 기준 */
+.project-slide-view .slide-box {
+    position: relative;
+}
+
+/* 항상 보이는 크게 보기 버튼 */
+.project-slide-view .image-expand-button {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    z-index: 5;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 9px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 999px;
+
+    background: rgba(20, 25, 38, 0.88);
+    color: #fff;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+
+    font: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+    cursor: pointer;
+
+    transition: background 0.2s, transform 0.2s;
+}
+
+.project-slide-view .image-expand-button i {
+    font-size: 19px;
+}
+
+/* 화면 위에 마우스를 올리면 버튼 강조 */
+.project-slide-view .slide-box:hover .image-expand-button {
+    background: #4f5b85;
+}
+
+.project-slide-view .image-expand-button:hover {
+    transform: translateY(-2px);
+}
+
+.project-slide-view .image-expand-button:focus-visible {
+    outline: 3px solid #7882a4;
+    outline-offset: 3px;
+}
+
+.project-slide-view .slide-back,
+.project-slide-view .slide-back-phone {
+    pointer-events: none;
+}
+
+.project-slide-view .slide-container .slide img {
+    cursor: zoom-in;
+}
+
+@media (max-width: 600px) {
+    .project-slide-view .image-expand-button {
+        right: 8px;
+        bottom: 8px;
+        padding: 7px 11px;
+        font-size: 12px;
+    }
+
+    #projectImageModal .image-viewer-toolbar {
+        padding: 12px;
+    }
+
+    #projectImageModal .image-viewer-toolbar > span {
+        font-size: 13px;
+    }
+
+    #projectImageModal .image-viewer-body {
+        padding: 8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-slide-view .image-expand-button {
+        transition: none;
+    }
+}
