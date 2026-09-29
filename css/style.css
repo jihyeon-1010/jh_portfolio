@@ -1538,18 +1538,18 @@ footer i { font-size: 40px; }
 }
 
 .project-link i{
-    color:#7882a4;
+    color:#146cff;
     font-size:18px;
 }
 
 .project-link a{
-    color:#555;
+    color:#146cff;
     text-decoration:none;
     font-weight:500;
 }
 
 .project-link a:hover{
-    color:#7882a4;
+    color:#004fc4;
 }
 
 /* -------------------- Career -------------------- */
