@@ -1792,6 +1792,154 @@ footer i { font-size: 40px; }
 /* =====================================================
    Modal
 ===================================================== */
+.career-modal .career-detail {
+    width: 940px;
+    max-width: min(94vw, 940px);
+    padding: 42px 46px;
+    color:#273044;
+}
+.career-detail-overline {
+    font-size:12px;
+    letter-spacing:.18em;
+    color:#7882a4;
+    font-weight:800;
+    margin-bottom:13px;
+}
+.career-modal .career-detail h2 {
+    font-size:clamp(22px,2.5vw,30px);
+    line-height:1.38;
+    padding-right:27px;
+    color:#26314f;
+    margin:0 0 15px;
+}
+.career-detail-meta {
+    display:flex;
+    flex-wrap:wrap;
+    gap:9px 20px;
+    color:#64708f;
+    font-size:14px;
+    font-weight:600;
+}
+.career-detail-meta span {
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+}
+.career-detail-meta i {
+    font-size:18px;
+}
+.career-detail-section {
+    margin-top:28px;
+    border-top:1px solid #e8ebf3;
+    padding-top:21px;
+}
+.career-modal .career-detail-section h3 {
+    font-size:16px;
+    line-height:1.4;
+    margin:0 0 14px;
+    color:#52618b;
+    font-weight:800;
+}
+.career-detail-desc,.career-detail-results p {
+    font-size:15px;
+    line-height:1.9;
+    margin:0;
+    word-break:keep-all;
+    color:#3e4658;
+}
+.career-detail-tags {
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+}
+.career-detail-tags span {
+    background:#edf0f8;
+    color:#48577e;
+    border-radius:7px;
+    padding:7px 11px;
+    font-size:13px;
+    font-weight:700;
+}
+.career-detail-work {
+    margin-top: 14px;
+    padding: 20px 24px;
+    background: #ffffff;
+    border: 1px solid #e5eaf5;
+    border-left: 3px solid #9ba9de;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(120, 130, 164, 0.05);
+}
+
+/* 박스 제목 */
+.career-detail-work h4 {
+    margin: 0 0 12px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.6;
+    color: #34456f;
+}
+
+/* 제목 앞 번호 */
+.career-detail-number {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #7486c0;
+}
+
+/* 리스트 */
+.career-detail-work ul {
+    list-style-type: disc;
+    list-style-position: outside;
+    padding-left: 20px;
+    margin: 0;
+}
+
+/* 리스트 항목 */
+.career-detail-work li {
+    display: list-item;
+    list-style-type: disc;
+    padding-left: 3px;
+    margin: 7px 0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.85;
+    color: #4b5567;
+    word-break: keep-all;
+}
+
+/* 리스트 앞 동그라미 */
+.career-detail-work li::marker {
+    color: #899ad4;
+    font-size: 12px;
+}
+
+/* 성과 및 배운 점 */
+.career-detail-results {
+    margin-top: 28px;
+    padding: 22px 25px;
+    background: #f4f6ff;
+    border: 1px solid #e5eafa;
+    border-radius: 12px;
+}
+
+/* 성과 제목 */
+.career-detail-results h3 {
+    color: #5268a8 !important;
+    margin-bottom: 12px !important;
+}
+
+/* 성과 내용 */
+.career-detail-results p {
+    color: #3e4658;
+    line-height: 1.9;
+}
+
+.career-modal .career-detail .modal-close {
+    z-index:3;
+}
+
 .career-modal{
     position:fixed;
     inset:0;
@@ -2105,6 +2253,45 @@ footer i { font-size: 40px; }
 
     .award-content p{
         font-size:14px;
+    }
+
+        .career-modal .career-detail {
+        width:96vw;
+        max-width:96vw;
+        max-height:89dvh;
+        padding:28px 19px 23px;
+        border-radius:15px;
+    }
+    .career-modal .career-detail h2 {
+        font-size:21px;
+        padding-right:20px;
+    }
+    .career-detail-meta {
+        font-size:12px;
+        gap:8px 13px;
+    }
+    .career-detail-section {
+        margin-top:22px;
+        padding-top:17px;
+    }
+    .career-detail-work {
+        padding:13px 12px;
+    }
+    .career-detail-work li {
+        font-size:13px;
+        line-height:1.7;
+    }
+    .career-detail-desc,.career-detail-results p {
+        font-size:13px;
+        line-height:1.8;
+    }
+    .career-detail-results {
+        padding:17px 15px;
+    }
+    .career-modal .career-detail .modal-close {
+        top:10px;
+        right:13px;
+        font-size:28px;
     }
 }
 
